@@ -29,7 +29,6 @@
 }
 body {
   font-family: nunito;
-  font-family: inherit;
   color: var(--text-color);
   background-color: var(--Bg-light);
 }
@@ -40,6 +39,7 @@ body.theme-dark {
   color: var(--White);
   .search-input,
   .filter-dropdown {
+    font: inherit;
     background-color: var(--elements);
     color: var(--White);
   }
@@ -67,6 +67,7 @@ body.theme-dark {
     justify-content: center;
     align-items: center;
     border: none;
+    font-family: nunito;
     color: var(--text-color);
     font-style: inherit;
     background-color: transparent;
@@ -103,13 +104,12 @@ body.theme-dark {
 }
 
 .filter-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   margin: 24px 16px;
+  width: 200px;
   .filter-dropdown {
-    padding: 20px;
-    width: 200px;
+    padding: 17px 20px;
+    font-family: nunito;
+    width: 100%;
     border: none;
     border-radius: 5px;
     box-shadow: 0 0 9px 0 rgba(0, 0, 9, 5.32%);
@@ -148,5 +148,69 @@ body.theme-dark {
       flex-direction: column;
       gap: var(--spacing-100);
     }
+  }
+}
+
+/* ==========================================
+   2. Small Devices / Tablets (min-width: 576px / 768px)
+   ========================================== */
+@media (min-width: 768px) {
+  .main-container {
+    width: clamp (900px, 50%, 1200px);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+  }
+  .filter-dropdown {
+    width: 100%;
+  }
+  .section-container-first {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+  }
+  .header-container a {
+    font-size: 20px;
+    .toggle-btn {
+      font-size: 15px;
+    }
+  }
+  .header-container .toggle-btn {
+    font-size: 15px;
+  }
+  .toggle-btn img {
+    width: 17px;
+    height: 17px;
+  }
+}
+
+/* ==========================================
+   3. Large Devices / Desktops (min-width: 992px / 1200px)
+   ========================================== */
+@media (min-width: 1024px) {
+  .header-container a {
+    font-size: 24px;
+    .toggle-btn {
+      font-size: 18px;
+    }
+  }
+  .header-container .toggle-btn {
+    font-size: 18px;
+  }
+  .toggle-btn img {
+    width: 20px;
+    height: 20px;
+  }
+  .main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+  }
+  .search-container {
+    width: 480px;
+  }
+  .section-container-first {
+    display: grid;
+    gap: 300px;
+    justify-content: space-between;
   }
 }
