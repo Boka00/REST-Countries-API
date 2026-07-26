@@ -1,0 +1,8 @@
+:root {
+  --elements: hsl(209, 23%, 22%);
+  --Bg-dark: hsl(207, 26%, 17%);
+  --text-color: hsl(200, 15%, 8%);
+  --input-color: hsl(0, 0%, 50%);
+  --Bg-light: hsl(0, 0%, 99%);
+  --White: hsl(0, 100%, 100%);
+}
