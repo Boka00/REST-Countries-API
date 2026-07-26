@@ -1,8 +1,51 @@
 :root {
-  --elements: hsl(209, 23%, 22%);
-  --Bg-dark: hsl(207, 26%, 17%);
-  --text-color: hsl(200, 15%, 8%);
-  --input-color: hsl(0, 0%, 50%);
-  --Bg-light: hsl(0, 0%, 99%);
-  --White: hsl(0, 100%, 100%);
+  /* colors */
+  --elements: hsl(209, 23%, 22%); /*blue 900*/
+  --Bg-dark: hsl(207, 26%, 17%); /*blue 950*/
+  --text-color: hsl(200, 15%, 8%); /* grey 950 */
+  --input-color: hsl(0, 0%, 50%); /* grey 400*/
+  --grey-350: hsl(0, 0%, 59%); /*gr350*/
+  --grey-300: hsl(0, 0%, 70%); /*gr300*/
+  --Bg-light: hsl(0, 0%, 99%); /*grey 250*/
+  --White: hsl(0, 100%, 100%); /* white*/
+
+  /* spacing */
+
+  --spacing-100: 8px;
+  --spacing-200: 16px;
+  --spacing-300: 24px;
+  --spacing-400: 32px;
+  --spacing-500: 40px;
+  --spacing-600: 48px;
+  --spacing-700: 56px;
+  --spacing-800: 64px;
+  --spacing-900: 72px;
+  --spacing-1000: 80px;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: nunito;
+  color: var(--text-color);
+  background-color: var(--Bg-light);
+}
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  padding: 20px;
+
+  .theme-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-100);
+    p {
+      font-size: 12px;
+    }
+  }
 }
