@@ -38,14 +38,67 @@ body {
   align-items: center;
   font-size: 14px;
   padding: 20px;
-
-  .theme-toggle {
+  box-shadow: 0 0 9px 0 rgba(0, 0, 9, 5.32%);
+  a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 800;
+  }
+  .toggle-btn {
     display: flex;
     justify-content: center;
     align-items: center;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
     gap: var(--spacing-100);
+
     p {
       font-size: 12px;
     }
+  }
+}
+
+.search-container {
+  display: block;
+  margin: 24px 16px;
+  .search-bar {
+    position: relative;
+    display: block;
+    .icon {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      top: 20px;
+      left: 30px;
+    }
+  }
+}
+
+.search-input {
+  padding: 20px 20px 20px 70px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 9px 0 rgba(0, 0, 9, 5.32%);
+  margin: auto;
+}
+
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 24px 16px;
+  .filter-dropdown {
+    padding: 20px;
+    width: 200px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 9px 0 rgba(0, 0, 9, 5.32%);
+    background-color: var(--White);
+    color: var(--text-color);
+    font-size: 14px;
+    cursor: pointer;
   }
 }
