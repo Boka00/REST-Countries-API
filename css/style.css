@@ -121,32 +121,55 @@ body.theme-dark {
 
 .cards-container {
   display: grid;
-  place-items: center;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: var(--spacing-900);
   margin: var(--spacing-400) var(--spacing-200);
 }
 
 .country-card {
-  width: 264px;
+  cursor: pointer;
+  width: 100%;
+  max-width: 264px;
   height: 336px;
   border-radius: 5px;
-  box-shadow: 0 0 7px 0 rgba(0, 0, 9, 10%);
+  box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  .country-info img {
-    height: 160px;
-    width: 264px;
-  }
-  .country-details {
-    padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.country-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.country-info {
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+}
+
+.country-info img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.country-details {
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-200);
+  .details {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-200);
-    .details {
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-100);
-    }
+    gap: var(--spacing-100);
   }
 }
 
