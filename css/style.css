@@ -122,13 +122,12 @@ body.theme-dark {
 .cards-container {
   display: grid;
   place-items: center;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: var(--spacing-400);
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: var(--spacing-900);
   margin: var(--spacing-400) var(--spacing-200);
 }
 
 .country-card {
-  padding-bottom: 50px;
   width: 264px;
   height: 336px;
   border-radius: 5px;
@@ -201,7 +200,7 @@ body.theme-dark {
     height: 20px;
   }
   .main-container {
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
     padding: 10px;
   }
