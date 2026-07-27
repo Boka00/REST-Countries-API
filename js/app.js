@@ -62,8 +62,8 @@ function renderCountries(countries) {
     countryInfo.classList.add("country-info");
 
     const img = document.createElement("img");
-    img.src = country.flags.svg || country.flags.png;
-    img.alt = country.name.common;
+    img.src = country.flags?.svg || country.flags?.png;
+    img.alt = country.name?.common;
     countryInfo.appendChild(img);
 
     // 4. country-details და სათაური
@@ -71,7 +71,7 @@ function renderCountries(countries) {
     countryDetails.classList.add("country-details");
 
     const title = document.createElement("h2");
-    title.textContent = country.name.common;
+    title.textContent = country.name?.common || country.name || "N/A";
 
     const detailsDiv = document.createElement("div");
     detailsDiv.classList.add("details");
@@ -106,3 +106,14 @@ function renderCountries(countries) {
     countriesContainer.appendChild(card);
   });
 }
+
+const searchInput = document.querySelector(".search-input");
+
+searchInput.addEventListener("input", (e) => {
+  const searchTerm = e.target.value.toLowerCase().trim();
+  // filter arr
+  const filteredCountries = allCountries.filter((country) => {
+    return country.name.toLowerCase().includes(searchTerm);
+  });
+  renderCountries(filteredCountries);
+});
