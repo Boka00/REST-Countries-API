@@ -117,6 +117,9 @@ body.theme-dark {
     cursor: pointer;
     outline: none;
   }
+  .hidden {
+    display: none;
+  }
 }
 
 .cards-container {

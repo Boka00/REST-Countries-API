@@ -2,6 +2,13 @@ const btn = document.getElementById("btn");
 const img = document.querySelector(".icon");
 const theme = document.querySelector(".theme-p");
 const savedTheme = localStorage.getItem("theme");
+const filterEL = document.querySelector(".hidden");
+const dropEL = document.querySelector(".filter-dropdown");
+
+dropEL.addEventListener("click", () => {
+  filterEL.classList.add("hidden");
+});
+
 let allCountries = [];
 
 if (savedTheme === "dark") {
@@ -94,7 +101,7 @@ function renderCountries(countries) {
     const regionP = createDetailRow("Region", country.region);
     const capitalP = createDetailRow(
       "Capital",
-      country.capital ? country.capital[0] : "N/A",
+      country.capital ? country.capital : "N/A",
     );
 
     // 6. ელემენტების აწყობა (Append)
@@ -107,6 +114,7 @@ function renderCountries(countries) {
   });
 }
 
+// search
 const searchInput = document.querySelector(".search-input");
 
 searchInput.addEventListener("input", (e) => {
