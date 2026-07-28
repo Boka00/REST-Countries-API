@@ -3,11 +3,7 @@ const img = document.querySelector(".icon");
 const theme = document.querySelector(".theme-p");
 const savedTheme = localStorage.getItem("theme");
 const filterEL = document.querySelector(".hidden");
-const dropEL = document.querySelector(".filter-dropdown");
-
-dropEL.addEventListener("click", () => {
-  filterEL.classList.add("hidden");
-});
+const regionDropdown = document.querySelector(".filter-dropdown");
 
 let allCountries = [];
 
@@ -123,5 +119,18 @@ searchInput.addEventListener("input", (e) => {
   const filteredCountries = allCountries.filter((country) => {
     return country.name.toLowerCase().includes(searchTerm);
   });
+  renderCountries(filteredCountries);
+});
+
+// filter logic
+regionDropdown.addEventListener("change", (e) => {
+  filterEL.classList.add("hidden");
+
+  const selectedRegion = e.target.value;
+  // გაფილტრე allCountries მასივი არჩეული რეგიონის მიხედვით
+  const filteredCountries = allCountries.filter((country) => {
+    return country.region === selectedRegion;
+  });
+  // ეკრანზე გამოიტანე გაფილტრული მასივი
   renderCountries(filteredCountries);
 });
