@@ -46,7 +46,8 @@ body.theme-dark {
   }
   a,
   .toggle-btn,
-  .back-btn {
+  .back-btn,
+  .btn {
     color: var(--White);
   }
   .back-btn > img {
@@ -112,6 +113,7 @@ button.back-btn,
 .country-img {
   width: 320px;
   border-radius: 5px;
+  box-shadow: 0 0 7px 3px #0000001a;
 }
 .country-details {
   line-height: 32px;
