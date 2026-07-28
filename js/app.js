@@ -127,10 +127,15 @@ regionDropdown.addEventListener("change", (e) => {
   filterEL.classList.add("hidden");
 
   const selectedRegion = e.target.value;
-  // გაფილტრე allCountries მასივი არჩეული რეგიონის მიხედვით
-  const filteredCountries = allCountries.filter((country) => {
-    return country.region === selectedRegion;
-  });
-  // ეკრანზე გამოიტანე გაფილტრული მასივი
-  renderCountries(filteredCountries);
+  // დააბრუნე ყველა
+  if (selectedRegion === "all") {
+    renderCountries(allCountries);
+  } else {
+    // გაფილტრე allCountries მასივი არჩეული რეგიონის მიხედვით
+    const filteredCountries = allCountries.filter(
+      (country) => country.region === selectedRegion,
+    );
+    // ეკრანზე გამოიტანე გაფილტრული მასივი
+    renderCountries(filteredCountries);
+  }
 });
