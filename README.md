@@ -26,13 +26,13 @@ A REST Countries API app built with vanilla HTML, CSS, and JavaScript. Browse ev
 
 While building this project, I practised:
 
-• **Working** with REST APIs
-• Fetch API and asynchronous JavaScript
-• DOM manipulation
-• Array methods (map, filter, find)
-• Event handling
-• Responsive web design
-• Clean project structure
+- **Working** with REST APIs
+- Fetch API and asynchronous JavaScript
+- DOM manipulation
+- Array methods (map, filter, find)
+- Event handling
+- Responsive web design
+- Clean project structure
 
 
 ## Project structure
