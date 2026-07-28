@@ -89,55 +89,122 @@ body.theme-dark {
   gap: var(--spacing-500);
 }
 
-button.back-btn,
-.btn {
+/* ==========================================
+   BACK BUTTON
+   ========================================== */
+button.back-btn {
   cursor: pointer;
-  background-color: transparent;
+  background-color: var(--White);   /* solid white, not transparent */
   display: flex;
-  color: var(--text-color);
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  width: 104px;
-  height: 32px;
+  padding: 0 24px;
+  height: 36px;
   font-size: 14px;
-  border-radius: 2px;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--text-color);
   border: none;
-  box-shadow: 0 0 7px 0 #0000001a;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  margin: var(--spacing-500) 0 var(--spacing-400); /* top/bottom spacing, no left offset */
 }
+
+button.back-btn:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  transform: translateY(-2px);
+}
+
+button.back-btn img {
+  width: 16px;
+  height: 16px;
+}
+
+/* Dark mode: back button gets dark card background */
+body.theme-dark button.back-btn {
+  background-color: var(--elements);
+  color: var(--White);
+}
+
+body.theme-dark button.back-btn img {
+  filter: brightness(100);
+}
+
+/* ==========================================
+   BORDER COUNTRY BUTTONS  (<a> tags injected by JS)
+   ========================================== */
+.btn {
+  display: inline-flex;         /* inline-flex works correctly on <a> tags */
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  height: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--text-color);     /* <a> tags default to blue — override */
+  text-decoration: none;        /* <a> tags have underline by default — remove */
+  background-color: var(--White);
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+  transform: translateY(-2px);
+}
+
+/* Dark mode: border buttons */
+body.theme-dark .btn {
+  background-color: var(--elements);
+  color: var(--White);
+}
+
+/* ==========================================
+   REST OF LAYOUT
+   ========================================== */
 .country-info {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-400);
 }
+
 .country-img {
-  width: 320px;
-  border-radius: 5px;
-  box-shadow: 0 0 7px 3px #0000001a;
+  width: 100%;
+  max-width: 320px;
+  border-radius: 6px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
 }
+
 .country-details {
   line-height: 32px;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-200);
 }
+
 .country-stats {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-300);
 }
+
 .border-countries {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-200);
 }
+
 .btn-container {
   display: flex;
-  gap: 16px;
-  .btn {
-    width: 96px;
-    height: 28px;
-  }
+  flex-wrap: wrap;   /* buttons wrap on narrow screens instead of overflowing */
+  gap: 10px;
 }
 
 /* ==========================================
@@ -154,12 +221,10 @@ button.back-btn,
     flex-direction: row;
     gap: var(--spacing-600);
   }
+  /* back-btn: use margin, not position — position:relative+top/left shifts layout */
   .back-btn {
-    position: relative;
-    top: 20px;
-    left: 20px;
-    margin-top: clamp(1rem, 4vw, 3rem);
-    margin-bottom: clamp(1rem, 4vw, 3rem);
+    margin-top: clamp(1rem, 4vw, 2rem);
+    margin-bottom: clamp(0.5rem, 2vw, 1.5rem);
   }
   .country-container {
     margin: 0 auto;
@@ -169,11 +234,10 @@ button.back-btn,
   .border-countries {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: var(--spacing-200);
   }
-  .layout-container {
-    position: absolute;
-  }
+  /* layout-container: removed position:absolute — it was breaking flow layout */
 }
 
 /* ==========================================
@@ -206,8 +270,5 @@ button.back-btn,
   .border-countries {
     margin-top: var(--spacing-700);
   }
-  .back-btn {
-    top: 10px;
-    left: 10px;
-  }
+  /* no position offset needed at desktop — margin handles spacing */
 }
