@@ -80,6 +80,12 @@ async function getCountryDetails() {
 
     const allCountries = await response.json();
 
+    // Change Georgia's region to Europe
+    const georgiaData = allCountries.find(c => c.alpha3Code === "GEO");
+    if (georgiaData) {
+      georgiaData.region = "Europe";
+    }
+
     // FIX: The API field is "alpha3Code", NOT "cca3"
     // This was the ROOT CAUSE of the "Country not found" error.
     // country.cca3 was always undefined, so the .find() never matched anything.
