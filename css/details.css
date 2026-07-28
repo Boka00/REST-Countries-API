@@ -1,0 +1,211 @@
+:root {
+  /* colors */
+  --elements: hsl(209, 23%, 22%); /*blue 900*/
+  --Bg-dark: hsl(207, 26%, 17%); /*blue 950*/
+  --text-color: hsl(200, 15%, 8%); /* grey 950 */
+  --input-color: hsl(0, 0%, 50%); /* grey 400*/
+  --grey-350: hsl(0, 0%, 59%); /*gr350*/
+  --grey-300: hsl(0, 0%, 70%); /*gr300*/
+  --Bg-light: hsl(0, 0%, 99%); /*grey 250*/
+  --White: hsl(0, 100%, 100%); /* white*/
+
+  /* spacing */
+
+  --spacing-100: 8px;
+  --spacing-200: 16px;
+  --spacing-300: 24px;
+  --spacing-400: 32px;
+  --spacing-500: 40px;
+  --spacing-600: 48px;
+  --spacing-700: 56px;
+  --spacing-800: 64px;
+  --spacing-900: 72px;
+  --spacing-1000: 80px;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: nunito;
+}
+body {
+  font-family: nunito;
+  color: var(--text-color);
+  background-color: var(--Bg-light);
+}
+
+body.theme-dark {
+  font-family: nunito;
+  background-color: var(--Bg-dark);
+  color: var(--White);
+  .search-input,
+  .filter-dropdown {
+    font: inherit;
+    background-color: var(--elements);
+    color: var(--White);
+  }
+  a,
+  .toggle-btn,
+  .back-btn {
+    color: var(--White);
+  }
+  .back-btn > img {
+    filter: brightness(100);
+  }
+}
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  padding: 20px;
+  box-shadow: 0 0 9px 0 rgba(0, 0, 9, 5.32%);
+  a {
+    color: var(--text-color);
+    font: inherit;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 800;
+  }
+  .toggle-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    font-family: nunito;
+    color: var(--text-color);
+    font-style: inherit;
+    background-color: transparent;
+    cursor: pointer;
+    gap: var(--spacing-100);
+  }
+}
+.country-container {
+  margin: 40px auto;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-500);
+}
+
+button.back-btn,
+.btn {
+  cursor: pointer;
+  background-color: transparent;
+  display: flex;
+  color: var(--text-color);
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 104px;
+  height: 32px;
+  font-size: 14px;
+  border-radius: 2px;
+  border: none;
+  box-shadow: 0 0 7px 0 #0000001a;
+}
+.country-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-400);
+}
+.country-img {
+  width: 320px;
+  border-radius: 5px;
+}
+.country-details {
+  line-height: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-200);
+}
+.country-stats {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-300);
+}
+.border-countries {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-200);
+}
+.btn-container {
+  display: flex;
+  gap: 16px;
+  .btn {
+    width: 96px;
+    height: 28px;
+  }
+}
+
+/* ==========================================
+   2. Small Devices / Tablets (min-width: 576px / 768px)
+   ========================================== */
+@media (min-width: 768px) {
+  .country-img {
+    width: 100%;
+    max-width: 560px;
+    border-radius: 5px;
+  }
+  .section-container {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-600);
+  }
+  .back-btn {
+    position: relative;
+    top: 20px;
+    left: 20px;
+    margin-top: clamp(1rem, 4vw, 3rem);
+    margin-bottom: clamp(1rem, 4vw, 3rem);
+  }
+  .country-container {
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 20px;
+  }
+  .border-countries {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-200);
+  }
+  .layout-container {
+    position: absolute;
+  }
+}
+
+/* ==========================================
+   3. Large Devices / Desktops (min-width: 992px / 1200px)
+   ========================================== */
+@media (min-width: 1024px) {
+  .header-container a {
+    font-size: 24px;
+    .toggle-btn {
+      font-size: 18px;
+    }
+  }
+  .header-container .toggle-btn {
+    font-size: 18px;
+  }
+  .toggle-btn img {
+    width: 20px;
+    height: 20px;
+  }
+  .country-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 10px;
+  }
+  .country-info {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-800);
+  }
+  .border-countries {
+    margin-top: var(--spacing-700);
+  }
+  .back-btn {
+    top: 10px;
+    left: 10px;
+  }
+}
