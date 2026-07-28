@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>REST Countries</title>
+    <title>REST Countries - Detail</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,13 +12,18 @@
     />
     <link rel="stylesheet" href="./css/details.css" />
   </head>
+  <!--
+    FIX: The body's class is set by details.js on load from localStorage.
+    We leave the class empty here; JS will add "theme-dark" if needed.
+  -->
   <body class="">
     <header class="header-container">
+      <!-- FIX: Brand link goes back to index.html, not details.html -->
       <a class="brand" href="./index.html">Where in the world?</a>
       <div class="theme-toggle">
         <button id="btn" class="toggle-btn">
-          <img src="./Assets/Path.svg" alt="icon" class="icon" />
-          <p class="theme-p">Dark Mode</p>
+          <img src="./Assets/Path.svg" alt="icon" class="icon" id="theme-icon" />
+          <p class="theme-p" id="theme-text">Dark Mode</p>
         </button>
       </div>
     </header>
@@ -29,30 +34,76 @@
           <p>Back</p>
         </button>
         <div class="country-info country-container">
-          <img class="country-img" src="./Assets/images.png" alt="lag" />
+          <!--
+            FIX: Added id="detail-flag" so that details.js can find this element.
+            Previously the HTML only had a class, but getElementById("detail-flag") needs an ID.
+          -->
+          <img
+            id="detail-flag"
+            class="country-img detail-flag"
+            src="./Assets/images.png"
+            alt="flag"
+          />
           <div class="country-details">
-            <h2>Belgium</h2>
+            <!-- FIX: Added id="detail-name" -->
+            <h2 id="detail-name" class="detail-name">Loading...</h2>
             <div class="country-stats">
               <div class="section-container">
                 <div class="main-details">
-                  <p><strong>Native Name:</strong> België</p>
-                  <p><strong>Population:</strong> 11,319,511</p>
-                  <p><strong> Region:</strong> Europe</p>
-                  <p><strong>Sub Region:</strong> Western Europe</p>
-                  <p><strong>Capital:</strong> Brussels</p>
+                  <p>
+                    <strong>Native Name:</strong>
+                    <!-- FIX: Added id="detail-native-name" -->
+                    <span id="detail-native-name">…</span>
+                  </p>
+                  <p>
+                    <strong>Population:</strong>
+                    <!-- FIX: Added id="detail-population" -->
+                    <span id="detail-population">…</span>
+                  </p>
+                  <p>
+                    <strong>Region:</strong>
+                    <!-- FIX: Added id="detail-region" -->
+                    <span id="detail-region">…</span>
+                  </p>
+                  <p>
+                    <strong>Sub Region:</strong>
+                    <!-- FIX: Added id="detail-sub-region" -->
+                    <span id="detail-sub-region">…</span>
+                  </p>
+                  <p>
+                    <strong>Capital:</strong>
+                    <!-- FIX: Added id="detail-capital" -->
+                    <span id="detail-capital">…</span>
+                  </p>
                 </div>
                 <div class="more-details">
-                  <p><strong>Top Level Domain:</strong> .be</p>
-                  <p><strong>Currencies:</strong> Euro</p>
-                  <p><strong>Languages:</strong> Dutch, French, German</p>
+                  <p>
+                    <strong>Top Level Domain:</strong>
+                    <!-- FIX: Added id="detail-tld" -->
+                    <span id="detail-tld">…</span>
+                  </p>
+                  <p>
+                    <strong>Currencies:</strong>
+                    <!-- FIX: Added id="detail-currencies" -->
+                    <span id="detail-currencies">…</span>
+                  </p>
+                  <p>
+                    <strong>Languages:</strong>
+                    <!-- FIX: Added id="detail-languages" -->
+                    <span id="detail-languages">…</span>
+                  </p>
                 </div>
               </div>
               <div class="border-countries">
                 <h3>Border Countries:</h3>
-                <div class="btn-container">
-                  <button class="btn" id="country-btn">France</button>
-                  <button class="btn" id="country-btn">Germany</button>
-                  <button class="btn" id="country-btn">Netherlands</button>
+                <!--
+                  FIX: Added id="btn-container" so details.js can find and populate this.
+                  Removed the hardcoded static buttons (France, Germany, Netherlands)
+                  because details.js dynamically renders them from the API.
+                  FIX: Removed duplicate id="country-btn" on each button — IDs must be unique.
+                -->
+                <div class="btn-container" id="btn-container">
+                  <!-- Border country buttons are injected here by details.js -->
                 </div>
               </div>
             </div>
@@ -61,7 +112,5 @@
       </div>
     </main>
   </body>
-  <!-- <script src="./js/app.js"></script> -->
-  <!-- <script src="./js/app.js"></script>
-  <script src="./js/details.js"></script> -->
+  <script src="./js/details.js"></script>
 </html>
