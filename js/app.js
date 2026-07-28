@@ -58,6 +58,13 @@ async function fetchCountries() {
     }
 
     const data = await response.json();
+    
+    // Change Georgia's region to Europe
+    const georgia = data.find(c => c.alpha3Code === "GEO");
+    if (georgia) {
+      georgia.region = "Europe";
+    }
+
     allCountries = data;
     renderCountries(allCountries);
   } catch (error) {
