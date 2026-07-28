@@ -26,7 +26,7 @@ A REST Countries API app built with vanilla HTML, CSS, and JavaScript. Browse ev
 
 While building this project, I practised:
 
-• Working with REST APIs
+• **Working** with REST APIs
 • Fetch API and asynchronous JavaScript
 • DOM manipulation
 • Array methods (map, filter, find)
@@ -42,7 +42,7 @@ REST-Countries-API/
 ├── Assets/           # Icons and static images
 ├── css/
 │   ├── style.css     # Home page styles
-│   └── details.css   # Details page styles
+│   └── details.css   # Details page** styles
 ├── js/
 │   ├── app.js        # Home page logic (fetch, search, filter, theme)
 │   └── details.js     # Details page logic (fetch by code, borders, theme)
